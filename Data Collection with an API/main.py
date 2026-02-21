@@ -1,6 +1,6 @@
 import requests
 import base64
-from func import get_trending_playlist_data
+from collector import fetch_playlist_tracks
 from dotenv import load_dotenv
 import os
 
@@ -29,7 +29,7 @@ else:
     exit()
 
 playlist_id = '1gfWsOG1WAoxNeUMMktZbq'
-music_df = get_trending_playlist_data(playlist_id, access_token)
+music_df = fetch_playlist_tracks(playlist_id, access_token)
 
 print(music_df)
 music_df.to_csv("musicdata.csv")
